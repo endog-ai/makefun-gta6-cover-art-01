@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VICE PRESS — Vice City-style cover maker</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="brand-mark">VP</span> VICE PRESS</div>
+  <p class="tagline">Turn your photos into a Vice City-style cover. Everything runs in your browser — photos never leave your machine.</p>
+</header>
+<main class="app">
+  <section class="controls" aria-label="Cover controls">
+    <h2>Make your cover</h2>
+
+    <label class="field">Title
+      <input id="title" type="text" maxlength="40" value="Neon Shore">
+    </label>
+    <label class="field">Subtitle
+      <input id="subtitle" type="text" maxlength="40" value="Vice City nights">
+    </label>
+    <label class="field">Badge ribbon
+      <input id="badge" type="text" maxlength="18" value="Vice City">
+    </label>
+    <button id="title-pos" type="button">Title: bottom</button>
+
+    <fieldset>
+      <legend>Layout</legend>
+      <div id="layout-picker" class="picker"></div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Colour grade</legend>
+      <div id="grade-picker" class="picker"></div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Photos — click one to put it in the selected panel</legend>
+      <div id="photo-strip" class="picker"></div>
+      <label class="upload">Upload your own photo
+        <input id="upload" type="file" accept="image/*">
+      </label>
+    </fieldset>
+
+    <p id="panel-label" class="hint">Panel 1 of 4 — drag on the cover to pan it</p>
+    <label class="field">Zoom the selected panel
+      <input id="zoom" type="range" min="1" max="3" step="0.05" value="1">
+    </label>
+
+    <fieldset>
+      <legend>Heat meter (stars)</legend>
+      <div id="stars-picker" class="picker"></div>
+    </fieldset>
+
+    <div class="row">
+      <button id="undo" type="button" disabled>Undo</button>
+      <button id="redo" type="button" disabled>Redo</button>
+    </div>
+
+    <fieldset>
+      <legend>Export size</legend>
+      <div id="size-picker" class="picker"></div>
+    </fieldset>
+    <button id="export" type="button" class="primary">Export PNG</button>
+    <p id="status" role="status"></p>
+  </section>
+
+  <section class="preview" aria-label="Live preview">
+    <canvas id="cover" width="1080" height="1080" aria-label="The cover"></canvas>
+    <p class="hint">Click a panel to select it. Drag inside it to pan the photo. One photo can fill several panels.</p>
+  </section>
+</main>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
